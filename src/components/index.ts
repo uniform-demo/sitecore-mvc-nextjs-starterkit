@@ -13,6 +13,10 @@ export class Placeholder extends BasePlaceholder {
 
 index.Placeholder = Placeholder;
 
+
+import { HelloWorld } from "./HelloWorld";
+index.HelloWorld = HelloWorld;
+
 export function getComponentsIndex() {
     return index;
 }
