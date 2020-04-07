@@ -11,7 +11,6 @@ module.exports = function() {
     process.env.UNIFORM_DATA_URL = 'https://habitat92.blob.core.windows.net/data'
     process.env.UNIFORM_OPTIONS_MVC_SUPPORT = 'true';
     process.env.UNIFORM_PUBLISH_TARGET = 'none',
-    process.env.UNIFORM_API_TOKEN = process.env.UNIFORM_API_TOKEN || '1234';
     process.env.UNIFORM_EXPORT_PREFETCH_ENABLED = 'false';
     process.env.UNIFORM_MODE = 'publish';
     process.env.UNIFORM_PUBLISH_FAKE_PUBLIC_URL = 'http://localhost:1234';

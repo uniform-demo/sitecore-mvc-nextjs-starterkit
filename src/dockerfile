@@ -1,0 +1,17 @@
+FROM node:12
+COPY . /src
+ARG PORT=3000
+ARG UNIFORM_API_TOKEN
+ARG NPM_TOKEN
+ENV PORT="${PORT}"
+ENV UNIFORM_API_TOKEN="${UNIFORM_API_TOKEN}"
+ENV NPM_TOKEN="${NPM_TOKEN}"
+RUN cd /src && npm ci
+RUN cd /src && npm run build
+EXPOSE 3000
+HEALTHCHECK --interval=5s \
+            --timeout=5s \
+            --retries=6 \
+            CMD curl -fs "http://localhost:${PORT}/-/uniform/status?token=${UNIFORM_API_TOKEN}" || exit 1
+
+CMD [ "node", "/src/server.js" ]
