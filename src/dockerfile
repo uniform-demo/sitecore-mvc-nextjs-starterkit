@@ -4,7 +4,7 @@ COPY . /src
 ARG NPM_TOKEN
 ENV NPM_TOKEN="${NPM_TOKEN}"
 
-RUN cd /src && npm ci
+RUN cd /src && npm install
 
 ARG PORT=3000
 ENV PORT="${PORT}"
@@ -21,6 +21,7 @@ ENV AZURE_STORAGE_ACCOUNT="${AZURE_STORAGE_ACCOUNT}"
 ARG AZURE_STORAGE_ACCESS_KEY
 ENV AZURE_STORAGE_ACCESS_KEY="${AZURE_STORAGE_ACCESS_KEY}"
 
+# redirect output because Azure DevOps can't handle some chars from it
 RUN cd /src && npm run build > build.log
 
 EXPOSE ${PORT}
