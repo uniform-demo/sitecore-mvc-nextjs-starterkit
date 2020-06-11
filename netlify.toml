@@ -1,6 +1,6 @@
 [build]
   base = "src/"
-  publish = "out/"
+  publish = "out2/"
   command = "npm run export"
   
 [[plugins]]
